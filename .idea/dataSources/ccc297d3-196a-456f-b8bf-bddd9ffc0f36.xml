@@ -789,8 +789,11 @@ false Zulu
     <database id="2" parent="1" name="library_db">
       <ObjectId>16401</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>786</IntrospectionStateNumber>
+      <IntrospectionStateNumber>967</IntrospectionStateNumber>
       <Current>1</Current>
+      <Relations>sequence|table|16897|16899|1
+sequence|table|16907|16909|1
+</Relations>
     </database>
     <database id="3" parent="1" name="online_store_db">
       <ObjectId>16394</ObjectId>
@@ -851,7 +854,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>787</IntrospectionStateNumber>
+      <IntrospectionStateNumber>968</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="2" name="heap">
@@ -945,124 +948,138 @@ false Zulu
     <language id="34" parent="4" name="plpgsql"/>
     <language id="35" parent="4" name="sql"/>
     <sequence id="36" parent="16" name="hibernate_sequence">
-      <ObjectId>16708</ObjectId>
+      <ObjectId>16848</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>911</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <table id="37" parent="16" name="books">
-      <ObjectId>16710</ObjectId>
+    <sequence id="37" parent="16" name="books_id_seq">
+      <ObjectId>16897</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>785</StateNumber>
-    </table>
-    <table id="38" parent="16" name="customers">
-      <ObjectId>16718</ObjectId>
+      <StateNumber>962</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <sequence id="38" parent="16" name="customers_id_seq">
+      <ObjectId>16907</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>785</StateNumber>
+      <StateNumber>963</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <table id="39" parent="16" name="books">
+      <ObjectId>16899</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>964</StateNumber>
     </table>
-    <sequence id="39" parent="31" name="hibernate_sequence">
+    <table id="40" parent="16" name="customers">
+      <ObjectId>16909</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>964</StateNumber>
+    </table>
+    <sequence id="41" parent="31" name="hibernate_sequence">
       <ObjectId>16410</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>522</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <column id="40" parent="37" name="id">
+    <column id="42" parent="39" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>783</StateNumber>
+      <StateNumber>962</StateNumber>
       <TypeId>20</TypeId>
+      <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="41" parent="37" name="author">
+    <column id="43" parent="39" name="author">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>783</StateNumber>
+      <StateNumber>962</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="42" parent="37" name="description">
+    <column id="44" parent="39" name="description">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>783</StateNumber>
+      <StateNumber>962</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="37" name="is_taken">
+    <column id="45" parent="39" name="is_taken">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>783</StateNumber>
+      <StateNumber>962</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="44" parent="37" name="name">
+    <column id="46" parent="39" name="name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>783</StateNumber>
+      <StateNumber>962</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="45" parent="37" name="customer_id">
+    <column id="47" parent="39" name="customer_id">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>783</StateNumber>
+      <StateNumber>962</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="46" parent="37" name="books_pkey">
-      <ObjectId>16716</ObjectId>
-      <StateNumber>783</StateNumber>
+    <index id="48" parent="39" name="books_pkey">
+      <ObjectId>16905</ObjectId>
+      <StateNumber>962</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="47" parent="37" name="books_pkey">
-      <ObjectId>16717</ObjectId>
-      <StateNumber>783</StateNumber>
+    <key id="49" parent="39" name="books_pkey">
+      <ObjectId>16906</ObjectId>
+      <StateNumber>962</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>books_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="48" parent="37" name="fkefq8s2jnee41rsll7igh64lrg">
-      <ObjectId>16726</ObjectId>
-      <StateNumber>785</StateNumber>
+    <foreign-key id="50" parent="39" name="fkefq8s2jnee41rsll7igh64lrg">
+      <ObjectId>16917</ObjectId>
+      <StateNumber>964</StateNumber>
       <ColNames>customer_id</ColNames>
-      <RefTableId>16718</RefTableId>
+      <RefTableId>16909</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>customers</RefTableName>
       <RefKeyName>customers_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="49" parent="38" name="id">
+    <column id="51" parent="40" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>784</StateNumber>
+      <StateNumber>963</StateNumber>
       <TypeId>20</TypeId>
+      <IdentityKind>by-default</IdentityKind>
     </column>
-    <column id="50" parent="38" name="email">
+    <column id="52" parent="40" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>784</StateNumber>
+      <StateNumber>963</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="51" parent="38" name="first_name">
+    <column id="53" parent="40" name="first_name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>784</StateNumber>
+      <StateNumber>963</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="52" parent="38" name="last_name">
+    <column id="54" parent="40" name="last_name">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>784</StateNumber>
+      <StateNumber>963</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="53" parent="38" name="customers_pkey">
-      <ObjectId>16724</ObjectId>
-      <StateNumber>784</StateNumber>
+    <index id="55" parent="40" name="customers_pkey">
+      <ObjectId>16915</ObjectId>
+      <StateNumber>963</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="54" parent="38" name="customers_pkey">
-      <ObjectId>16725</ObjectId>
-      <StateNumber>784</StateNumber>
+    <key id="56" parent="40" name="customers_pkey">
+      <ObjectId>16916</ObjectId>
+      <StateNumber>963</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>customers_pkey</UnderlyingIndexName>
