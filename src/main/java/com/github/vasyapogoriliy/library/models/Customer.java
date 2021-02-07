@@ -1,28 +1,29 @@
 package com.github.vasyapogoriliy.library.models;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class User {
+@Table(name = "customers")
+public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
 
     private String firstName;
     private String lastName;
     private String email;
 
-    public User() {
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+    private List<Book> books = new ArrayList<>();
+
+    public Customer() {
 
     }
 
-    public User(Long id, String firstName, String lastName, String email) {
+    public Customer(Long id, String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -59,5 +60,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }
